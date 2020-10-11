@@ -3,7 +3,7 @@ from datetime import datetime
 import os ,sys,traceback
 import pandas as pd
 import pypyodbc as pyodbc
-from helper import FileDetails, tableName_insert,Dbdetails
+from helper import FileDetails, tableName_insert,Dbdetails ,move_file
 ################################################################################
 file_path = os.path.dirname(os.path.realpath(__file__))
 ################################################################################
@@ -36,6 +36,8 @@ def loader(file2load):
             inserted = True
         if inserted:   
             logging.info('{file2load} inserted into database ')
+            move_file(file2load)
+
     result['isok'] = 1
     return result
   

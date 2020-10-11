@@ -29,3 +29,8 @@ def tableName_insert(FileFullPath, EquipmentID, result, comment):
     + "SYSDATETIME(),"
     + str(result) + ",'"
     + comment + "')" )
+
+def move_file(myfile):
+    source = FileDetails.file_location + "\\" + myfile
+    destination =FileDetails.archieve_loc + "\\" + myfile
+    shutil.move(source,destination)
